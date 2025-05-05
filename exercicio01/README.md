@@ -37,37 +37,22 @@ O projeto será estruturado em camadas conforme o padrão da Clean Architecture:
 
 ## 📁 Exemplo de Estrutura Inicial
 
+```plaintext
 /project-root
-│
 ├── domain/
-│ └── entities/
-│ └── User.ts
+│   └── entities/
+│   └── User.ts
 │
 ├── application/
-│ └── use-cases/
+│   └── use-cases/
 │
 ├── infrastructure/
-│ └── prisma/
-│ └── schema.prisma
+│   └── prisma/
+│   └── schema.prisma
 │
 ├── interfaces/
-│ └── api/
+│   └── api/
 │
 ├── node_modules/
 ├── package.json
 └── tsconfig.json
-
-yaml
-Copiar
-Editar
-
----
-
-## ✅ Progresso
-
-| Tarefa                                  | Status     |
-|----------------------------------------|------------|
-| Estruturação das pastas                | 🔲 Pendente |
-| Configuração do Prisma                 | 🔲 Pendente |
-| Criação do schema inicial              | 🔲 Pendente |
-| Criação da entidade `User`             | 🔲 Pendente |
