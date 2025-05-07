@@ -5,6 +5,8 @@ export class CreateUser {
     constructor(private rep: IUserRepository){}
 
     async execute(data: CreateUserDto) {
-        return await this.rep.create(data);
+        if(await this.rep.findByEmail(data.email)) throw new Error("Email already in use");
+        const user = await this.rep.create(data);
+        return {user_id: user.id};
     }
 }

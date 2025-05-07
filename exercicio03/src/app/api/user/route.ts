@@ -12,9 +12,18 @@ export async function POST(req: Request) {
         const createUser = new CreateUser(repo);
 
         const res = await createUser.execute(parsed.data); // caso queria salvar a promise executada
-        return new Response(JSON.stringify({ success: true, status: 200, user_id: res.id }), { status: 200 });
+        return new Response(JSON.stringify({ success: true, status: 200, res }), { status: 200 });
 
     } catch (err) {
+        if (err instanceof Error) 
+          return new Response(
+            JSON.stringify({
+              success: false,
+              message: err.message,
+              status: 500,
+            }),
+            { status: 500 }
+          );        
         return new Response(JSON.stringify({ message: "Unexpected error", success: false, error: err }), { status: 500 });
     }
 }

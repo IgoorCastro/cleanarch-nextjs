@@ -10,8 +10,8 @@ const testCreateUser = async () => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      name: 'Kerolayne',
-      email: 'kerolayne@email.com'
+      name: 'Joao',
+      email: 'Joao@email.com'
     }),
   });
   const res = await testFetch.json();

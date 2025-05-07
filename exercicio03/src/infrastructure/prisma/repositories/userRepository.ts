@@ -4,16 +4,15 @@ import { prisma } from "../client/prismaClient";
 
 
 export class UserRepository implements IUserRepository {
-    async create(user: Omit<User, 'id'>): Promise<{id: number}> {
+    async create(user: Omit<User, 'id'>): Promise<User> {
         return await prisma.user.create({
             data: user,
-            select: { id: true }
         });
     }
 
-    async findById(id: number): Promise<User | null> {
+    async findByEmail(email: string): Promise<User | null> {
         return await prisma.user.findUnique({
-            where: {id}
+            where: {email}
         });
     }
 
